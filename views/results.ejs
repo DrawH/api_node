@@ -1,15 +1,22 @@
 <% include partials/header %>
 
-	<title>Results Page</title>
+<h1>Chercher un autre film</h1>
+
+<form action="/results" method="get">
+	<input type="text" name="search" placeholder="rechercher">
+	<input type="submit">
+</form>
+
+	<title>Page des résultats</title>
 </head>
 <body>
-	<h1>Results Page</h1>
+	<h1>Page des résultats</h1>
 	<table border = "2">
 	  <tr>
-	    <th>Year</th>
-	    <th>Name</th>
-	    <th>Cover</th>
-	    <th>IMDB Link</th>
+	    <th>Année</th>
+	    <th>Nom</th>
+	    <th>Affiche</th>
+	    <th>OMDB Link</th>
 	  </tr>
 	  <% data['Search'].forEach(function(movie){ %>
 	  <tr>
@@ -17,11 +24,11 @@
 	    <td><%= movie['Year'] %></td>
 	    <td><%= movie['Title'] %></td>
 	    <td><img src="<%= movie['Poster'] %>" alt=""></td>
-	    <td><a href="<%= imdb_url %>">View on IMDB</a></td>
+	    <td><a href="<%= imdb_url %>">View on OMDB</a></td>
 	  </tr>
 	  <% }) %>
 	</table>
 	<br/>
- 	<a href="/">Search Again!</a>
+ 	<a href="/">Cherchez encore!</a>
 </body>
 </html>
